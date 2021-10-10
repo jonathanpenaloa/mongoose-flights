@@ -12,7 +12,7 @@ function index(req, res) {
 
 
 function create(req, res) {
-  req.body.nowBoarding = !!req.body.nowBoarding;
+  
   for (let key in req.body) {
   if (req.body[key] === '') delete req.body[key];
   }
