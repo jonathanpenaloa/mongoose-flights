@@ -3,11 +3,19 @@ module.exports = {
   index,
   create,
   new: newFlight,
+  show,
 }
+
+function show(req, res) {
+  Flight.findById(req.params.id, function (err, flightInfo) {
+  res.render('flights/show', {flightInfo});
+  });
+}
+
 function index(req, res) {
   Flight.find({}, function(err, flights) {
-    res.render('flights/index', {flights: flights});
-    })
+    res.render('flights/index', {"flights": flights});
+    });
   }
 
 
